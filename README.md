@@ -34,6 +34,13 @@ $$
 
 Essentially, we just compute the expected values produced from the layer before and generate a probability distribution for the output layer, where we then return the max value of the distribution as our predicted guess, $\hat{y}$.
 
+## Calculating Loss with our Error Function
+Thinking back to a linear regression model, we can calculate the loss of a neural network using *Cross Entropy Loss*. Cross entropy takes the true probability of an input, multiplying it by the log of it and takes the negative sum over all inputs. This is expressed as this formula:
+
+$$ H(P^{*}|P) = -\sum_{i}^{} P^{*} \log{P(i)} $$
+
+This is a dominant loss function in calculating error in machine learning, specifically with neural networks and classification problems - which is what this project is!
+
 ## Backpropagation Algorithm
 Backpropagation is the algorithm used for training neural networks. We simply calculate the cost of the neural network given the following error function:
 
