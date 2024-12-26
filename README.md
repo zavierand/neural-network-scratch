@@ -49,8 +49,9 @@ This, on a very high level, is backpropagation.
 To compute the best possible values for our weights and biases in our neural network, we can use gradient descent (of course). Gradient descent is obviously one of - if not, the most popular algorithm used for updating the parameters to be as optimal as possible. Given an input vector of values, we can compute the optimal values for our weights and biases with the following two equations:
 
 $$
-w = w - \alpha \cdot \frac{\oartial J}{\partial w}\\
-b = b - \alpha \cdot \frac{\oartial J}{\partial b}\\
+w = w - \alpha \cdot \frac{\partial J}{\partial w}
+
+b = b - \alpha \cdot \frac{\partial J}{\partial b}
 $$
 
 where $w$ and $b$ are the weights and biases associated with each edge interlinking the neurons in different layers.
