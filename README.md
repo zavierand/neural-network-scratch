@@ -38,9 +38,7 @@ $$J(w) = ||c - (f(w_1, w_2, ..., n_n))||^2$$
 Not going too much into the math, but to calculate the cost of the neural network, we see that we have a recurrence relation with the number of weights. Therefore, we can simply take the partial derivative of the error function using chain rule, with respect to each weight, $w$, and we get the following:
 
 $$
-\[
 \frac{\partial J}{\partial W_n} = 2(c - X_p) \cdot \prod_{n=1}^{p} \frac{\partial f(W_n, X_{n-1})}{\partial X_{n-1}}.
-\]
 $$
 
 This, on a very high level, is backpropagation.
@@ -50,9 +48,8 @@ To compute the best possible values for our weights and biases in our neural net
 
 $$
 w = w - \alpha \cdot \frac{\partial J}{\partial w}
-
-b = b - \alpha \cdot \frac{\partial J}{\partial b}
 $$
+$$b = b - \alpha \cdot \frac{\partial J}{\partial b}$$
 
 where $w$ and $b$ are the weights and biases associated with each edge interlinking the neurons in different layers.
 
