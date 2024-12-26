@@ -38,7 +38,7 @@ Essentially, we just compute the expected values produced from the layer before 
 Thinking back to a linear regression model, we can calculate the loss of a neural network using *Cross Entropy Loss*. Cross entropy takes the true probability of an input, multiplying it by the log of it and takes the negative sum over all inputs. This is expressed as this formula:
 
 $$
-H(P^{*}|P) = -\sum_{i}^{} P^{*} \log(P(i))
+H(P^\*|P) = -\sum_{i}^{} P^{*} \log(P(i))
 $$
 
 This is a dominant loss function in calculating error in machine learning, specifically with neural networks and classification problems - which is what this project is!
