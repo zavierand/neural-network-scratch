@@ -29,7 +29,7 @@ $$
 As the neural network traverses the layers from the input -> hidden layers -> output our activation functions do change. Upon reach the output - 1 layer, the activation function used is called the "Softmax Activation function". Softmax can be expressed as the following function:
 
 $$
-p_i = \frac{exp(z_i)}{\sum_{j=1}^{n}z_j}
+p_i = \frac{\text{exp}(z_i)}{\sum_{j=1}^{n}\text{exp}(z_j)}
 $$
 
 Essentially, we just compute the expected values produced from the layer before and generate a probability distribution for the output layer, where we then return the max value of the distribution as our predicted guess, $\hat{y}$.
