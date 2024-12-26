@@ -18,15 +18,16 @@ $$ \text{relu}(x) = \text{max}(0, x) $$
 
 where we simply return the max of 0 and $x$, the output from the the layer before. We can denote it as a piecewise function as well:
 
-$$\[
+$$
 \text(relu)(x) =
     \begin{cases} 
     0 & \text{if } x < 0, \\
     x & \text{if } x \geq 0.
     \end{cases}
-\]$$
+$$
 
 As the neural network traverses the layers from the input -> hidden layers -> output our activation functions do change. Upon reach the output - 1 layer, the activation function used is called the "Softmax Activation function". Softmax can be expressed as the following function:
+
 $$
 p_i = \frac{exp(z_i)}{\sum_{j=1}^{n}z_j}
 $$
