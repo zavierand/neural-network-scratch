@@ -19,7 +19,7 @@ $$ \text{relu}(x) = \text{max}(0, x) $$
 where we simply return the max of 0 and $x$, the output from the the layer before. We can denote it as a piecewise function as well:
 
 $$
-\text(relu)(x) =
+\text{relu}(x) =
     \begin{cases} 
     0 & \text{if } x < 0, \\
     x & \text{if } x \geq 0.
