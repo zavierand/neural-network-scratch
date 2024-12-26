@@ -12,9 +12,12 @@ In a neural network, given the 3 types of layers: input, hidden, output - we can
 A neural network works very simply - the data is forward fed where activation functions process the data from the input layer all the way through to the output layer. This is also known as **forward propagation**. On error calculation, we propagate backwards and essentially just see how far off our computations were. This is more commonly known as **back propagation**.
 
 ## Activation Functions in Forward Propagation
-An activation fucntion is From the input layer to the first hidden layer, we process our data with the following activation function, ReLu - an acronym for ``Rectified Linear Unit''. If given an input matrix, $A$, ReLu can be expressed as the following function:
+An activation fucntion is From the input layer to the first hidden layer, we process our data with the following activation function, ReLu - an acronym for "Rectified Linear Unit". If given an input matrix, $A$, ReLu can be expressed as the following function:
+
 $$ \text{relu}(x) = \text{max}(0, x) $$
+
 where we simply return the max of 0 and $x$, the output from the the layer before. We can denote it as a piecewise function as well:
+
 $$\[
 \text(relu)(x) =
     \begin{cases} 
@@ -23,7 +26,7 @@ $$\[
     \end{cases}
 \]$$
 
-As the neural network traverses the layers from the input -> hidden layers -> output our activation functions do change. Upon reach the output - 1 layer, the activation function used is called the ``Softmax Activation function''. Softmax can be expressed as the following function:
+As the neural network traverses the layers from the input -> hidden layers -> output our activation functions do change. Upon reach the output - 1 layer, the activation function used is called the "Softmax Activation function". Softmax can be expressed as the following function:
 $$
 p_i = \frac{exp(z_i)}{\sum_{j=1}^{n}z_j}
 $$
