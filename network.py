@@ -13,35 +13,31 @@ import matplotlib
 # print(f'numpy version: {np.__version__}')
 # print(f'matplot version: {matplotlib.__version__}')
 
+np.random.seed(0)
+
 # hard code one input -> output layer 
-inputs = np.array([[1, 2, 3, 2.5],
-                  [2.0, 5.0, -1.0, 2.0],
-                  [-1.5, 2.7, 3.3, -0.8]])
+X = np.array([[1, 2, 3, 2.5],
+              [2.0, 5.0, -1.0, 2.0],
+              [-1.5, 2.7, 3.3, -0.8]])
 
-weights = np.array([[0.2, 0.8, -0.5, 1.0], 
-                    [0.5, -0.91, 0.26, -0.5], 
-                    [-0.26, -0.27, 0.17, 0.87]])
+class Layer:
+    def __init__(self, n_inputs, n_neurons):
+        # creates a gaussian distribution for weights
+        self.weights = 0.1 * np.random.randn(n_inputs, n_neurons)
+        self.biases = np.zeros((1, n_neurons))
 
-biases = np.array([2, 3, 0.5])
+    # forward feed data into neural network
+    def forwardProp(self, inputs):
+        # simply outputs a linear value
+        self.output = np.dot(inputs, self.weights) + self.biases
+        return self.output
+        
+layer1 = Layer(4, 5)
+layer2 = Layer(5, 2)
+print(f'layer one: \n{layer1.forwardProp(X)}')
+print(f'layer two: \n{layer2.forwardProp(layer1.output)}')
 
-weights_2 = np.array([[0.1, -0.14, 0.5], 
-                    [-0.5, -0.12, -0.33],
-                    [-0.44, 0.73, -0.13]])
-
-biases_2 = np.array([-1, 2, -0.5])
-
-layer_one_output = np.dot(inputs, weights.T) + biases
-
-layer_two_output = np.dot(layer_one_output, weights_2.T) + biases_2
-
-
-print(f'layer 1 output:\n {layer_one_output}')
-print()
-print(f'layer 2 output:\n {layer_two_output}')
-
-
-
-# class definition of a neuron
+'''# class definition of a neuron
 class Neuron:
     def __init__(self, weight, bias, inputs, outputs):
         self.weight = weight
@@ -62,4 +58,4 @@ class NeuralNetwork:
         # calc partial derivatives
         return weight, bias
 
-# end class definition
+# end class definition'''

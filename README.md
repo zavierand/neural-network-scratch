@@ -12,7 +12,7 @@ In a neural network, given the 3 types of layers: input, hidden, output - we can
 A neural network works very simply - the data is forward fed where activation functions process the data from the input layer all the way through to the output layer. This is also known as **forward propagation**. On error calculation, we propagate backwards and essentially just see how far off our computations were. This is more commonly known as **back propagation**.
 
 ## Activation Functions in Forward Propagation
-An activation fucntion is From the input layer to the first hidden layer, we process our data with the following activation function, ReLu - an acronym for "Rectified Linear Unit". If given an input matrix, $A$, ReLu can be expressed as the following function:
+An activation fucntion is a function used in forward propagation to help process data from the input layer all the way to $n - 1$ layers - where $n$ is the number of layers in the network including both the input and output layer. There are many activation functions we can use to process our data, but for this network, we will use the following activation function, ReLu - an acronym for "Rectified Linear Unit". If given an input matrix, $A$, ReLu can be expressed as the following function:
 
 $$ \text{relu}(x) = \text{max}(0, x) $$
 
@@ -26,13 +26,22 @@ $$
     \end{cases}
 $$
 
-As the neural network traverses the layers from the input -> hidden layers -> output our activation functions do change. Upon reach the output - 1 layer, the activation function used is called the "Softmax Activation function". Softmax can be expressed as the following function:
+As the neural network traverses the layers from the input -> hidden layers -> output our activation functions do change. Upon reach the $n - 1$ layer, the activation function used is called the "Softmax Activation function". Softmax can be expressed as the following function:
 
 $$
 p_i = \frac{\text{exp}(z_i)}{\sum_{j=1}^{n}\text{exp}(z_j)}
 $$
 
 Essentially, we just compute the expected values produced from the layer before and generate a probability distribution for the output layer, where we then return the max value of the distribution as our predicted guess, $\hat{y}$.
+
+### Activation Function Goal
+The goal of the an activation function is to add non-linearity to processing. Thinking about this intuitively, we use the following equation to propagate forward:
+
+$$
+\f_{w,b}(x) = w_1x_1 + w_2x_2 + ... + w_nx_n + b
+$$
+
+where $w$, are the weights and $b$ is the bias per neuron.
 
 ## Calculating Loss with our Error Function
 Thinking back to a linear regression model, we can calculate the loss of a neural network using *Cross Entropy Loss*. Cross entropy takes the true probability of an input, multiplying it by the log of it and takes the negative sum over all inputs. This is expressed as this formula:
