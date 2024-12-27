@@ -66,5 +66,10 @@ $$b = b - \alpha \cdot \frac{\partial J}{\partial b}$$
 
 where $w$ and $b$ are the weights and biases associated with each edge interlinking the neurons in different layers.
 
+# Architecture
+I wanted to be able to cluster data points into three categories, similar to a k-means or k-nearest neighbors - both clustering algorithms used in different situations. There are other clustering algorithms that work, but these were the first that popped into my head.
+
+Arbitrarily, I have set k = 3 - meaning I want the neural network to cluster each point that's added to the data set into three clusters.
+
 # And so...
 This is the math behind how a neural network generates output and trains itself. It may seem daunting, but in practice, the math is not as bad as it seems (though it can still be not fun at times).
