@@ -215,7 +215,6 @@ class NeuralNetwork:
         self.plot_final_output()
     
 # test neural network now
-# test neural network now
 X = np.random.randn(3, 3)  # 3 samples, 3 features (changed to 3 features)
 y = np.array([0, 0, 1])  # Class labels
 
