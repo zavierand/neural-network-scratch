@@ -7,7 +7,7 @@ This is a simple neural network from scratch. The goal of neural network is to c
 As many of us know, a neural network is a machine learning technique that consists of three types of layers - the input layer, hidden layers, and output layers. 
 
 # Algorithms
-The algorithms used in this are all rely on simple linear algebra, proability theory, and simple calculus. Different from supervised learning - where we have our input features AND target labels, we have no target labels, $\hat{y}$ ,to use while training in a neural network. Hence, if trying to predict the point ${x, \hat{y}}$, we would need to approach it through an unsupervised learning approach.
+The algorithms used in this are all rely on simple linear algebra, probability theory, and simple calculus. Different from supervised learning - where we have our input features AND target labels, we have no target labels, $\hat{y}$ ,to use while training in a neural network. Hence, if trying to predict the point ${x, \hat{y}}$, we would need to approach it through an unsupervised learning approach.
 
 In a neural network, given the 3 types of layers: input, hidden, output - we can predict the points through a set of functions. With neural networks, the architecture is simple to understand on a high level, but practically much more complex.
 
