@@ -38,7 +38,7 @@ Essentially, we just compute the expected values produced from the layer before 
 The goal of the an activation function is to add non-linearity to processing. Thinking about this intuitively, we use the following equation to propagate forward:
 
 $$
-\f_{w,b}(x) = w_1x_1 + w_2x_2 + ... + w_nx_n + b
+f_{w,b}(x) = w_1x_1 + w_2x_2 + ... + w_nx_n + b
 $$
 
 where $w$, are the weights and $b$ is the bias per neuron.
