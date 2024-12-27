@@ -1,6 +1,8 @@
 # Project
 This is a simple neural network from scratch. The goal of neural network is to cluster points as best as possible as they are being added.
 
+**please note the backpropagation section needs a rewrite**
+
 # Overview
 As many of us know, a neural network is a machine learning technique that consists of three types of layers - the input layer, hidden layers, and output layers. 
 
