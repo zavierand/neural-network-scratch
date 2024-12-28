@@ -14,7 +14,8 @@ In a neural network, given the 3 types of layers: input, hidden, output - we can
 A neural network works very simply - the data is forward fed where activation functions process the data from the input layer all the way through to the output layer. This is also known as **forward propagation**. On error calculation, we propagate backwards and essentially just see how far off our computations were. This is more commonly known as **back propagation**.
 
 ## Activation Functions in Forward Propagation
-An activation fucntion is a function used in forward propagation to help process data from the input layer all the way to $n - 1$ layers - where $n$ is the number of layers in the network including both the input and output layer. There are many activation functions we can use to process our data, but for this network, we will use the following activation function, ReLu - an acronym for "Rectified Linear Unit". If given an input matrix, $A$, ReLu can be expressed as the following function:
+### RelU:
+An activation fucntion is a function used in forward propagation to help process data and add non-linearity to the output from the input neuron from the input layer all the way to $n - 1$ layers - where $n$ is the number of layers in the network including both the input and output layer. There are many activation functions we can use to process our data, but for this network, we will use the following activation function, ReLu - an acronym for "Rectified Linear Unit". If given an input matrix, $A$, ReLu can be expressed as the following function:
 
 $$ \text{relu}(x) = \text{max}(0, x) $$
 
@@ -24,11 +25,15 @@ $$
 \text{relu}(x) =
     \begin{cases} 
     0 & \text{if } x < 0, \\
-    x & \text{if } x \geq 0.
+    x & \text{if } x \geq 0
     \end{cases}
 $$
 
-As the neural network traverses the layers from the input -> hidden layers -> output our activation functions do change. Upon reach the $n - 1$ layer, the activation function used is called the "Softmax Activation function". Softmax can be expressed as the following function:
+Here is a visual of ReLU:
+![ReLU activation function](./images/relu.png)
+
+### Softmax:
+As the neural network traverses the layers from the input -> hidden layers -> output our activation functions do change. Upon reach the $n - 1$ layer, the activation function used is called the "Softmax Activation function". The Softmax activation functions converts logits into probabilities, making it ideal for classification tasks. Softmax can be expressed as the following function:
 
 $$
 p_i = \frac{\text{exp}(z_i)}{\sum_{j=1}^{n}\text{exp}(z_j)}
@@ -43,7 +48,7 @@ $$
 f_{w,b}(x) = w_1x_1 + w_2x_2 + ... + w_nx_n + b
 $$
 
-where $w$, are the weights and $b$ is the bias per neuron.
+where $w$, are the weights and $b$ is the bias per neuron. We can see this as a glorified regression model ($\hat{y} = wx^{i} + b$). To add some non-linearity to forward processing, we apply an activation function. This function essentially lets the model recognize complex patterns in data, that otherwise would have been glossed over.
 
 ## Calculating Loss with our Error Function
 Thinking back to a linear regression model, we can calculate the loss of a neural network using *Cross Entropy Loss*. Cross entropy takes the true probability of an input, multiplying it by the log of it and takes the negative sum over all inputs. This is expressed as this formula:
@@ -54,8 +59,8 @@ $$
 
 This is a dominant loss function in calculating error in machine learning, specifically with neural networks and classification problems - which is what this project is!
 
-## Backpropagation Algorithm
-Backpropagation is the algorithm used for training neural networks. To update the weights and biases of the network, we take the partial derivatives of the activation function in each layer and then we update the weights and biases accordingly.
+## Backpropagation
+Backpropagation is the algorithm used for training neural networks. To update the weights and biases of the network, we take the partial derivatives, using chain rule, of each layer and then we update the weights and biases accordingly.
 
 Not going too much into the math, but to calculate the cost of the neural network, we see that we have a recurrence relation with the number of weights. Therefore, we can simply take the partial derivative of the error function using chain rule, with respect to each weight, $w$, and we get the following:
 
@@ -64,6 +69,19 @@ $$
 $$
 
 This, on a very high level, is backpropagation.
+
+### Derivatives of the Activation Functions
+Seeing how backprop works, we can assume that the derivatives of the activation functions can help train the network in a surprisingly effective way. When looking at the derivative of ReLU, $\text{relu}(x) = \text{max}(0, x)$, notice that we get this:
+
+$$
+f^{'}(x) =
+    \begin{cases} 
+        1 & \text{if } x > 0, \\
+        0 & \text{if } x \leq 0
+    \end{cases}
+$$
+
+Essentially, this "deactivates" a neuron on training, influencing which neurons should be considered during forward pass. This works in conjunction with gradient descent to improve accuracy rates by updating the weights and biases of the neurons while also influencing paths a network can take to reach a desired output.
 
 ## Gradient Descent
 To compute the best possible values for our weights and biases in our neural network, we can use gradient descent (of course). Gradient descent is obviously one of - if not, the most popular algorithm used for updating the parameters to be as optimal as possible. Given an input vector of values, we can compute the optimal values for our weights and biases with the following two equations:

@@ -38,10 +38,10 @@ class ActivationSoftmax:
         self.output = probabilities
 
     def backprop(self, dvalues, y_true):
-        # Number of samples
+        # num samples
         n_samples = dvalues.shape[0]
 
-        # ff labels are sparse (integers), convert to one-hot encoding
+        # if labels are sparse (integers), convert to one-hot encoding
         if len(y_true.shape) == 1:
             y_true = np.eye(dvalues.shape[1])[y_true]
 
@@ -68,7 +68,7 @@ class CrossEntropyLoss:
 class NeuralNetwork:
     def __init__(self, input_size, output_size):
         self.learning_rate = 0.1
-        # Initialize the network with layers
+        # initialize network with 4 layers
         self.dense1 = DenseLayer(input_size, 5)  # First layer: input_size inputs, 5 neurons
         self.activation1 = ActivationReLU()
 
@@ -238,7 +238,7 @@ class NeuralNetwork:
 X = np.random.randn(3, 3)  # 3 samples, 3 features (changed to 3 features)
 y = np.array([0, 0, 1])  # Class labels
 
-# Initialize the neural network with 3 input neurons instead of 5
+# Initialize neural network with 3 input neurons
 nn = NeuralNetwork(input_size=3, output_size=3)
 
 # One-hot encode labels
