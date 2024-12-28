@@ -142,10 +142,15 @@ This is the math behind how a neural network generates output and trains itself.
 
 # Resources:
 [Neural Network from Scratch](https://nnfs.io) - [Sentdex](https://www.youtube.com/@sentdex)
+
 [Stanford CS231: Neural Networks for Visual Recognition](https://cs231n.github.io)
+
 Some of my notes from Professor [Ernest Davis](https://cs.nyu.edu/~davise/) from Fall 2024 Semester - CSCI-UA 472
+
 Russell, S. J., & Norvig, P. (2016). [Artificial Intelligence: a Modern Approach (3rd ed.)](https://aima.cs.berkeley.edu). Pearson.
+
 Bishop, C. M. (2006). [Pattern Recognition and Machine Learning](https://www.microsoft.com/en-us/research/uploads/prod/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf). Springer
+
 [Building a neural network from scratch](https://www.youtube.com/watch?v=w8yWXqWQYmU&t=834s&pp=ygUcbmV1cmFsIG5ldHdvcmtzIGZyb20gc2NyYXRjaA%3D%3D)
 
 ‌
