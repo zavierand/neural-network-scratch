@@ -14,7 +14,7 @@ In a neural network, given the 3 types of layers: input, hidden, output - we can
 A neural network works very simply - the data is forward fed where activation functions process the data from the input layer all the way through to the output layer. This is also known as **forward propagation**. On error calculation, we propagate backwards and essentially just see how far off our computations were. This is more commonly known as **back propagation**.
 
 ## Activation Functions in Forward Propagation
-### RelU:
+### ReLU:
 An activation fucntion is a function used in forward propagation to help process data and add non-linearity to the output from the input neuron from the input layer all the way to $n - 1$ layers - where $n$ is the number of layers in the network including both the input and output layer. There are many activation functions we can use to process our data, but for this network, we will use the following activation function, ReLu - an acronym for "Rectified Linear Unit". If given an input matrix, $A$, ReLu can be expressed as the following function:
 
 $$ \text{relu}(x) = \text{max}(0, x) $$
@@ -74,7 +74,7 @@ This, on a very high level, is backpropagation.
 Seeing how backprop works, we can assume that the derivatives of the activation functions can help train the network in a surprisingly effective way. When looking at the derivative of ReLU, $\text{relu}(x) = \text{max}(0, x)$, notice that we get this:
 
 $$
-f^{'}(x) =
+f'(x) =
     \begin{cases} 
         1 & \text{if } x > 0, \\
         0 & \text{if } x \leq 0
