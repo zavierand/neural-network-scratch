@@ -177,6 +177,26 @@ class NeuralNetwork:
         plt.ylabel('Samples')
         plt.show()
 
+    def plot_decision_boundaries(self, X, y, ax):
+        # If there are no points in X, skip plotting boundaries
+        if len(X) == 0:
+            return
+
+        # Generate grid for decision boundaries
+        h = .02  # Step size for the mesh
+        x_min, x_max = X[:, 0].min() - 1, X[:, 0].max() + 1
+        y_min, y_max = X[:, 1].min() - 1, X[:, 1].max() + 1
+        xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))
+
+        # Get predictions for each point in the mesh grid
+        Z = self.predict(np.c_[xx.ravel(), yy.ravel()])
+        Z = Z.reshape(xx.shape)
+
+        # Plot decision boundary
+        ax.contourf(xx, yy, Z, alpha=0.3, cmap='viridis')
+        ax.set_xlim(xx.min(), xx.max())
+        ax.set_ylim(yy.min(), yy.max())
+
     def plot_final_output(self):
         """
         Plot the final output (softmax probabilities).
