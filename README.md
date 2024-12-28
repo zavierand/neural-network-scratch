@@ -55,9 +55,7 @@ $$
 This is a dominant loss function in calculating error in machine learning, specifically with neural networks and classification problems - which is what this project is!
 
 ## Backpropagation Algorithm
-Backpropagation is the algorithm used for training neural networks. We simply calculate the cost of the neural network given the following error function:
-
-$$J(w) = ||c - (f(w_1, w_2, ..., n_n))||^2$$
+Backpropagation is the algorithm used for training neural networks. To update the weights and biases of the network, we take the partial derivatives of the activation function in each layer and then we update the weights and biases accordingly.
 
 Not going too much into the math, but to calculate the cost of the neural network, we see that we have a recurrence relation with the number of weights. Therefore, we can simply take the partial derivative of the error function using chain rule, with respect to each weight, $w$, and we get the following:
 
@@ -81,6 +79,45 @@ where $w$ and $b$ are the weights and biases associated with each edge interlink
 I wanted to be able to cluster data points into three categories, similar to a k-means or k-nearest neighbors - both clustering algorithms used in different situations. There are other clustering algorithms that work, but these were the first that popped into my head.
 
 Arbitrarily, I have set k = 3 - meaning I want the neural network to cluster each point that's added to the data set into three clusters.
+
+# Program
+There are multiple files in this repo, [the model itself](network.py), the [interactive "game"](main.py), and a [test](spiral-test.py) on the model.
+
+### network.py
+This is the source code for the network. All of the math and theory mentioned earlier in the file is incorporated here. Decided to approach this with an object-oriented approach to allow for modularity across the different files.
+
+### main.py
+The interactive ui lets users add a point to the network and watch the model create clusters as it learns. Here is one output of the network 
+
+### spiral-test.py
+The spiral test data set was sourced from the following case-study: [Case Study Link](https://cs231n.github.io/neural-networks-case-study/). On most runs, after 10000 epochs, we get an accuracy range of 98.6 to 99.3 percent.
+
+# Running the program
+You can clone this repo:
+```
+git clone https://github.com/zavierand/neural-network-scratch
+```
+
+Since this was built in python and NumPy, you don't need to install a lot of dependencies. Run this to install any of the dependencies you need:
+```
+pip install numpy
+pip install matplotlib
+```
+
+You can run the following command to run the model.:
+```
+python3 network.py
+```
+
+or these commands to run the interactive ui or the spiral-test
+```
+python spiral-test.py
+python main.py
+```
+
+Here is one output of the test:
+![spiral test](./.outputs/spiral-test-output2.jpg)
+Here, we can see the model has an accuracy of 99.3% at 9000 epochs.
 
 # And so...
 This is the math behind how a neural network generates output and trains itself. It may seem daunting, but in practice, the math is not as bad as it seems (though it can still be not fun at times).
