@@ -245,4 +245,4 @@ nn = NeuralNetwork(input_size=3, output_size=3)
 y_one_hot = np.eye(3)[y]  # Convert to one-hot encoding
 
 # Train the network
-accuracies = nn.train(X, y_one_hot, epochs=10000)
+accuracies = nn.train(X, y_one_hot, epochs=1000)
